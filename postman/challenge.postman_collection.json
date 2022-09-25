@@ -35,7 +35,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"company_id\":1,\n    \"email\":\"kim05@example.org\",\n    \"password\":\"123123\"\n}",
+					"raw": "{\n    \"company_id\":1,\n    \"email\":\"test_user@example.org\",\n    \"password\":\"123123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -382,7 +382,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"products\":[\n        {\n            \"id\":4,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":5,\n            \"quantity\":1\n\n        }\n    ],\n    \"customer_address_id\":1\n}",
+					"raw": "{\n    \"products\":[\n        {\n            \"id\":1,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":2,\n            \"quantity\":1\n\n        }\n    ],\n    \"customer_address_id\":1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -611,7 +611,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\":1,\n    \"products\":[\n          {\n            \"id\":1,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":2,\n            \"quantity\":1\n\n        }\n    ],\n    \"customer_address_id\" : 1\n    \n}",
+					"raw": "{\n    \"id\":2,\n    \"products\":[\n          {\n            \"id\":1,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":2,\n            \"quantity\":2\n\n        }\n    ],\n    \"customer_address_id\" : 1\n    \n}",
 					"options": {
 						"raw": {
 							"language": "json"

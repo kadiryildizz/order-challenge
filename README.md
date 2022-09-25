@@ -42,4 +42,8 @@ Collections içinde detaylı istek çıktıları mevcut.
 - USERNAME=sail
 - PASSWORD=password
 
+postman testleri için kullandığım sql datasını buradan yükleye bilirsiniz.
+
+[sql dump](https://github.com/kadiryildizz/order-challenge/blob/master/sql%20dump.sql)
+
 
