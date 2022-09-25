@@ -1,0 +1,756 @@
+{
+	"info": {
+		"_postman_id": "5b783e70-3c2a-44a0-b3c7-88500e095871",
+		"name": "challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var json = pm.response.json();",
+							"",
+							"pm.environment.set('api_token',json.data.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"company_id\":1,\n    \"email\":\"kim05@example.org\",\n    \"password\":\"123123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/auth/login",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company_id\":1,\n    \"email\":\"kim05@example.org\",\n    \"password\":\"123123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/auth/login",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "0.0.0.0:88"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Sep 2022 17:16:38 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Sep 2022 17:16:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"error\": null,\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDBiNTc2YjFhYzFkMTUzYzM4ZTI2MTc0ZWJkMmE5ZDJhMGE1ZmFmODU5ZTQ3OGEwM2FhODYxZmFhZjg1NzUyNGE2MmI4YjZiMmQxZDllZjEiLCJpYXQiOjE2NjQxMjYxOTguMzMxMDE5LCJuYmYiOjE2NjQxMjYxOTguMzMxMDIyLCJleHAiOjE2OTU2NjIxOTguMzIwOTc5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.L11OItf0OWnzSHpEkLMde-ye1Ha1wp9QMFiDhpeloQVcM23ljZ_KAVhA6NJ9zpvDHK347M1r7mfRMP5k7EbfJzccQ9-LLGbDOmbZHi_MKjYxInmAtn8abviTu7Br0PcivKNt0wTVZKEgQ4deVjMYyTvFVcJPzocdteHhj01ecJ2NxBKDyYjDqVryjbEosbt0JWi-VhoIw_s9ooRpO4czwMPd2wStR8GG58sZIqYi40RWqAscXuaeVNGeaRSFVS7yhIonSbymQquXKY3ZWcSxeFMp7kTWVQCUHrZ4MXJcG87YsSSPS-QqC8CBqDBPkidJZXnwXQfvLBSEzEQdEokawyKKaEUlYuub_6ZLd_e7ouceMxVHYFePUyYXWwBYtxzTFmmIb7p0sIEiKVf7aYVUK7FK8bO6LW-4FgTVtUQgIY9XVldr45QN_gLtSmmGe43n-GeqW3EzOIH_vJYhtU1r_nHi_uXFUnlkaXeXnPCCUWI8UdAknNcYO4H5nZ-lbYLfFqEH2J1rylwmyWbUppXnmP3auaaF4wQmjGJYDVSjTaWe9lbshhcxCOvHecp851t0ZvfHkaT2ygXzM4Cvrr0Niq-Kq3k4l8FQjQdIgypZ4dwljTaBgd6NwTqbu2Yumb04QZ6j1QW43C7e5ryV1jnG5XhkPyLsBbt3-E5DO0Yt1Lc\"\n    }\n}"
+				},
+				{
+					"name": "User Not Exist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company_id\":1,\n    \"email\":\"kim05@example.org\",\n    \"password\":\"123123gdsd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/auth/login",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 500,\n    \"error\": {\n        \"code\": 5001,\n        \"message\": \"user not exist\"\n    },\n    \"data\": null\n}"
+				},
+				{
+					"name": "Email Address Not Valid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company_id\":1,\n    \"email\":\"kim05@example.org\",\n    \"password\":\"123123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/auth/login",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 302,\n    \"error\": {\n        \"code\": 0,\n        \"message\": \"The email must be a valid email address.\"\n    },\n    \"data\": null\n}"
+				},
+				{
+					"name": "Password Is Required",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company_id\":1,\n    \"email\":\"kim05@example.org\",\n    \"password\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/auth/login",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 302,\n    \"error\": {\n        \"code\": 0,\n        \"message\": \"The password field is required.\"\n    },\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":null,\n    \"code\":null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/order",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":null,\n    \"code\":null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"error\": null,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"customer_id\": 2,\n            \"company_id\": 1,\n            \"status\": 1,\n            \"shipping_status\": \"PENDING\",\n            \"shipping_date\": \"2022-09-26 06:07:02\",\n            \"customer_address_id\": 1,\n            \"code\": \"ABC7118\",\n            \"total\": 119.72,\n            \"address\": \"5311 Cummings Brooks Suite 259\\nLavinachester, PA 44588\",\n            \"items\": [\n                {\n                    \"product_id\": 1,\n                    \"order_id\": 1,\n                    \"company_id\": 1,\n                    \"quantity\": 1,\n                    \"unit_price\": 80.5,\n                    \"total_price\": 80.5\n                },\n                {\n                    \"product_id\": 3,\n                    \"order_id\": 1,\n                    \"company_id\": 1,\n                    \"quantity\": 2,\n                    \"unit_price\": 19.61,\n                    \"total_price\": 39.22\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"customer_id\": 2,\n            \"company_id\": 1,\n            \"status\": 1,\n            \"shipping_status\": \"PENDING\",\n            \"shipping_date\": \"2022-09-26 06:26:10\",\n            \"customer_address_id\": 1,\n            \"code\": \"ABC5369\",\n            \"total\": 98.92999999999999,\n            \"address\": \"5311 Cummings Brooks Suite 259\\nLavinachester, PA 44588\",\n            \"items\": [\n                {\n                    \"product_id\": 4,\n                    \"order_id\": 2,\n                    \"company_id\": 1,\n                    \"quantity\": 1,\n                    \"unit_price\": 13.77,\n                    \"total_price\": 13.77\n                },\n                {\n                    \"product_id\": 5,\n                    \"order_id\": 2,\n                    \"company_id\": 1,\n                    \"quantity\": 1,\n                    \"unit_price\": 85.16,\n                    \"total_price\": 85.16\n                }\n            ]\n        }\n    ]\n}"
+				},
+				{
+					"name": "Id Fıeld Integer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":null,\n    \"code\":null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 302,\n    \"error\": {\n        \"code\": 0,\n        \"message\": \"The id must be an integer.\"\n    },\n    \"data\": null\n}"
+				},
+				{
+					"name": "Code Fıeld String",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":null,\n    \"code\":null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 302,\n    \"error\": {\n        \"code\": 0,\n        \"message\": \"The code must be a string.\"\n    },\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "OrderAdd",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"products\":[\n        {\n            \"id\":4,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":5,\n            \"quantity\":1\n\n        }\n    ],\n    \"customer_address_id\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/order/add",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"order",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\":[\n        {\n            \"id\":1,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":2,\n            \"quantity\":2\n\n        }\n    ],\n    \"customer_address_id\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order/add",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order",
+								"add"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"error\": null,\n    \"data\": {\n        \"id\": 1,\n        \"customer_id\": 2,\n        \"company_id\": 1,\n        \"status\": 1,\n        \"shipping_status\": \"PENDING\",\n        \"shipping_date\": \"2022-09-26 06:07:02\",\n        \"customer_address_id\": 1,\n        \"code\": \"ABC7118\",\n        \"total\": 119.72,\n        \"address\": \"5311 Cummings Brooks Suite 259\\nLavinachester, PA 44588\",\n        \"items\": [\n            {\n                \"product_id\": 1,\n                \"order_id\": 1,\n                \"company_id\": 1,\n                \"quantity\": 1,\n                \"unit_price\": 80.5,\n                \"total_price\": 80.5\n            },\n            {\n                \"product_id\": 3,\n                \"order_id\": 1,\n                \"company_id\": 1,\n                \"quantity\": 2,\n                \"unit_price\": 19.61,\n                \"total_price\": 39.22\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Proudct Status Passive",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\":[\n        {\n            \"id\":3,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":4,\n            \"quantity\":2\n\n        }\n    ],\n    \"customer_address_id\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order/add",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order",
+								"add"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 302,\n    \"error\": {\n        \"code\": 0,\n        \"message\": \"The selected products.1.id is invalid.\"\n    },\n    \"data\": null\n}"
+				},
+				{
+					"name": "Product Over Stock",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\":[\n        {\n            \"id\":1,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":2,\n            \"quantity\":20\n\n        }\n    ],\n    \"customer_address_id\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order/add",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order",
+								"add"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 302,\n    \"error\": {\n        \"code\": 0,\n        \"message\": \"The products.1.quantity must be between  1 and 5.\"\n    },\n    \"data\": null\n}"
+				},
+				{
+					"name": "Addres Id Field Required",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\":[\n        {\n            \"id\":1,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":2,\n            \"quantity\":2\n\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order/add",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order",
+								"add"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 302,\n    \"error\": {\n        \"code\": 0,\n        \"message\": \"The customer address id field is required. (and 1 more error)\"\n    },\n    \"data\": null\n}"
+				},
+				{
+					"name": "Address Id Is Invalid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\":[\n        {\n            \"id\":1,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":2,\n            \"quantity\":2\n\n        }\n    ],\n    \"customer_address_id\":16\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order/add",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order",
+								"add"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 302,\n    \"error\": {\n        \"code\": 0,\n        \"message\": \"The selected customer address id is invalid.\"\n    },\n    \"data\": null\n}"
+				},
+				{
+					"name": "Products Data Required",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_address_id\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order/add",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order",
+								"add"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 302,\n    \"error\": {\n        \"code\": 0,\n        \"message\": \"The products field is required.\"\n    },\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "OrderUpdate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":1,\n    \"products\":[\n          {\n            \"id\":1,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":2,\n            \"quantity\":1\n\n        }\n    ],\n    \"customer_address_id\" : 1\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/order/update",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"order",
+						"update"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":2,\n    \"products\":[\n          {\n            \"id\":4,\n            \"quantity\":0\n\n        },\n        {\n            \"id\":6,\n            \"quantity\":0\n\n        }\n    ],\n    \"customer_address_id\" : 1\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order/update",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order",
+								"update"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "\n    \"status\": 200,\n    \"error\": null,\n    \"data\": {\n        \"id\": 1,\n        \"customer_id\": 2,\n        \"company_id\": 1,\n        \"status\": 1,\n        \"shipping_status\": \"PENDING\",\n        \"shipping_date\": \"2022-09-26 06:07:02\",\n        \"customer_address_id\": 1,\n        \"code\": \"ABC7118\",\n        \"total\": 170.68,\n        \"address\": \"5311 Cummings Brooks Suite 259\\nLavinachester, PA 44588\",\n        \"items\": [\n            {\n                \"product_id\": 1,\n                \"order_id\": 1,\n                \"company_id\": 1,\n                \"quantity\": 1,\n                \"unit_price\": 80.5,\n                \"total_price\": 80.5\n            },\n            {\n                \"product_id\": 3,\n                \"order_id\": 1,\n                \"company_id\": 1,\n                \"quantity\": 2,\n                \"unit_price\": 19.61,\n                \"total_price\": 39.22\n            },\n            {\n                \"product_id\": 2,\n                \"order_id\": 1,\n                \"company_id\": 1,\n                \"quantity\": 1,\n                \"unit_price\": 50.96,\n                \"total_price\": 50.96\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Stock Availability",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":2,\n    \"products\":[\n          {\n            \"id\":4,\n            \"quantity\":0\n\n        },\n        {\n            \"id\":6,\n            \"quantity\":0\n\n        }\n    ]\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order/update",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order",
+								"update"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 500,\n    \"error\": {\n        \"code\": 5004,\n        \"message\": \"stock availability\"\n    },\n    \"data\": null\n}"
+				},
+				{
+					"name": "Address Is Invalid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":2,\n    \"products\":[\n          {\n            \"id\":4,\n            \"quantity\":0\n\n        },\n        {\n            \"id\":6,\n            \"quantity\":0\n\n        }\n    ],\n     \"customer_address_id\" : 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order/update",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order",
+								"update"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 302,\n    \"error\": {\n        \"code\": 0,\n        \"message\": \"The selected customer address id is invalid.\"\n    },\n    \"data\": null\n}"
+				},
+				{
+					"name": "In Transit Order",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":1,\n    \"products\":[\n          {\n            \"id\":1,\n            \"quantity\":1\n\n        },\n        {\n            \"id\":2,\n            \"quantity\":1\n\n        }\n    ],\n    \"customer_address_id\" : 1\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order/update",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order",
+								"update"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": 500,\n    \"error\": {\n        \"code\": 5005,\n        \"message\": \"in transit order\"\n    },\n    \"data\": null\n}"
+				}
+			]
+		}
+	]
+}
